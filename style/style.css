@@ -1,0 +1,44 @@
+/*http://paletton.com/#uid=50k0C1k9BBh19x34uwfj+vOuRGTktpkgvduwtxokuSfEyg9qkhlhcnkn-klkoeve8bJbb*/
+
+body{
+  background-color: #FFCDB3;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+body div{
+  border-radius: 10px;
+  padding: 1em 2em;
+}
+
+.container{
+  background-color: #FF5F09;
+}
+
+.container .title{
+  background-color: #FE965F;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: .5em;
+}
+
+.container .content{
+  background-color: #FE965F;
+}
+
+.navbar{
+  padding: 0px;
+}
+
+.title .navbar a{
+  border: 1px black solid;
+  padding: 0.5em;
+  font-size: .5em;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  display: inline;
+  margin-bottom: -1em;
+}

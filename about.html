@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Kyle's site!</title>
+  <script>
+    $(document).ready(function(){
+      $("#toot").hide();
+
+      $("#surprise").on('click', function(){
+        $("#toot").fadeIn(1000, function(){
+          $("#toot").fadeOut(1000);
+        })
+      });
+    });
+  </script>
+</head>
+<body>
+  <img src="img/tootToot.gif" id="toot" style="margin: 0 auto; display: inline-block; width: 100%; height: 50%;">
+  <div class="container">
+    <div class="title">
+      <p>About</p>
+      <div class="navbar">
+        <a href="index.html">Home!</a>
+        <a href="about.html">About</a>
+        <a href="#" id="surprise">Click here for a surprise!</a>
+      </div>
+    </div>
+    <div class="content">
+      Here is nothing
+    </div>
+  </div>
+</body>
+</html>
