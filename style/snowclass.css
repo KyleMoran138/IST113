@@ -1,0 +1,45 @@
+body{
+  background-color: rgb(106, 190, 250);
+}
+.snowman{
+  display: inline-block;
+  margin-left: 25%;
+  margin-top: 150px;
+}
+.snowman .head{
+  width: 65px;
+  height: 50px;
+  padding-top: 10px;
+  margin-top: 50px;
+}
+
+.snowman .torso{
+  width: 100px;
+  height: 55px;
+  padding-top: 45px;
+}
+
+.snowman .feet{
+  width: 150px;
+  height: 100px;
+  padding-top: 65px;
+}
+
+.snowman div{
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  background-color: white;
+  display: block;
+  text-align: center;
+}
+#grass{
+  width: 105%;
+  height: 500px;
+  margin: -10px;
+  background-color: rgb(66, 187, 0);
+
+}
