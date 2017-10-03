@@ -1,9 +1,9 @@
 //Var
 var on = true;
-var onButtonActiveColor = "#00ff00";
-var offButtonActiveColor = "#ff0000";
-var onButtonDisabledColor = "#5d7e5d";
-var offButtonDisabledColor = "#6c4141";
+var onButtonActiveColor = "#ff0000";
+var offButtonActiveColor = "#00ff00";
+var onButtonDisabledColor = "#000000";
+var offButtonDisabledColor = "#ffffff";
 
 
 
@@ -16,11 +16,15 @@ function toggleButton(element){
   if(on){
     onButton.style.backgroundColor = onButtonDisabledColor;
     offButton.style.backgroundColor = offButtonActiveColor;
+    onButton.style.color = "black";
+    offButton.style.color = "black";
     body.style.backgroundColor = "#000000";
     on = false;
   }else{
     onButton.style.backgroundColor = onButtonActiveColor;
     offButton.style.backgroundColor = offButtonDisabledColor;
+    onButton.style.color = "black";
+    offButton.style.color = "white";
     body.style.backgroundColor = "#ffffff";
     on = true;
   }
