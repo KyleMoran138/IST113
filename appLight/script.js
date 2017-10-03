@@ -27,10 +27,10 @@ function toggleButton(element){
     offButton.style.color = "white";
     body.style.backgroundColor = "#ffffff";
     on = true;
-  }
+  }/*
   if(on){
     alert("Lights on!")
   }else{
     alert("Lights off!");
-  }
+  }*/
 }
