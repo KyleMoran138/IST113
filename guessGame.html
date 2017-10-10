@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My guessing game</title>
+  <link rel="stylesheet" type="text/css" href="style\guessGame.css">
+  <script src="script\guessGame.js"></script>
+</head>
+<body>
+  <div id="mainContainer">
+    <h1 style="text-align: center;">The best guessing game</h1>
+    <div id="gameItems">
+      <span id="userPrompt" style="text-align: center; display: block;">
+        Welcome to the coolest game ever. Player 1 enter your number.
+      </span>
+      <input id="userTextInput" type="number" value="1"/><br />
+      <input id="userStartGame" type="button" value="Heck yea!" onClick="startGame()"/>
+      <input id="userSubmit" type="button" class="hidden" value="Guess" onClick="guessNumber()"/>
+      <input id="reset" type="button" class="hidden" value="Play" onClick="reset()"/>
+    </div>
+  </div>
+</body>
+</html>

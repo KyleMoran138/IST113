@@ -1,0 +1,26 @@
+
+.hidden{
+  display: none !important;
+}
+
+#mainContainer{
+  border: grey solid 1px;
+  border-radius: 1em;
+  background-color: grey;
+  margin: 10% auto;
+  width: 20%;
+  display: block;
+}
+#gameItems{
+}
+
+#userStartGame, #userSubmit, #reset{
+  margin: 0 auto;
+  display: block;
+}
+
+#userTextInput{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
