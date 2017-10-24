@@ -74,7 +74,7 @@ function taskAtHandApp(){
 		if(moveUp){
 			$task.insertBefore($task.prev());
 		}else{
-			$task.insertAfter($task.prev());
+			$task.insertAfter($task.next());
 		}
 		saveTaskList();
 	}

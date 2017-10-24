@@ -3,6 +3,7 @@ function taskAtHandApp(){
 	var version = "v1.0";
 	appStorage = new AppStorage("taskAtHand");
 	lastValues = "";
+	ranUndo = true;
 
 	// creating a private function
 	function setStatus(message){
@@ -61,6 +62,7 @@ function taskAtHandApp(){
 
 	function saveTaskList(){
 		lastValues = appStorage.getValue("taskList");
+		ranUndo = false;
 		console.log(lastValues);
 		var tasks = [];
 		$("#taskList .task span.task-name").each(function(){
@@ -78,7 +80,7 @@ function taskAtHandApp(){
 		if(moveUp){
 			$task.insertBefore($task.prev());
 		}else{
-			$task.insertAfter($task.prev());
+			$task.insertAfter($task.next());
 		}
 		saveTaskList();
 	}
@@ -93,9 +95,12 @@ function taskAtHandApp(){
 	}
 
 	function undo(){
-		$(".task").not("#task-template .task").remove();
-		appStorage.setValue("taskList", lastValues);
-		loadTaskList();
+		if(ranUndo == false){
+			$(".task").not("#task-template .task").remove();
+			appStorage.setValue("taskList", lastValues);
+			loadTaskList();
+			ranUndo = true;
+		}
 	}
 
 	// creating a public function
