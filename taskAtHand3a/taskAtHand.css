@@ -124,9 +124,6 @@ button {
 #taskList .task .tools button.delete{
 	background-position: 0 0;
 }
-#taskList .task button.toggle-details{
-	background-position: 0 -16px;
-}
 #taskList .task .tools button.move-up{
 	background-position: -16px 0;
 }
@@ -141,4 +138,6 @@ button {
 }
 #taskList .task .tools button, #taskList .task button.toggle-details{
 	background: url('images/icons.png');
+	background-position: 0px -16px;
+
 }
