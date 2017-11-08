@@ -1,0 +1,19 @@
+#app{
+   background-color: black;
+   background: -webkit-linear-gradient(top, black, black);
+   background: -moz-linear-gradient(top, black, black);
+   background: -ms-linear-gradient(top, black, black);
+   background: linear-gradient(top, black, black);
+   color: white;
+}
+#taskList .task{
+  color: black;
+  background-color: rgba(100,100,100,1);
+}
+#app>header,
+#app>footer{
+  background-color: black;
+}
+#taskList .task.selected{
+	background-color: rgba(150,150,150,1);
+}
