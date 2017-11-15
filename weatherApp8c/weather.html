@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>App</title>
+		<link href="app.css" rel="StyleSheet" />
+		<script src="lib/jquery-3.2.1.min.js"></script>
+		<script src="weatherWidget.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<header>App</header>
+			<div id="main">
+				<div id="weather-widget">
+					<div class="loading">
+						<p>Checking the weather...</p>
+						<img src="images/loading.gif" alt="loading..." />
+					</div>
+					<div class="results">
+						<header>
+							<img src="" alt="Condition" />Current weather for
+							<div class="location"><span></span></div>
+						</header>
+						<section class="conditions">
+							Conditions: <span data-field="detailedForecast"></span></br>
+							Temperature: <span data-field="temperature"></span></br>
+							Forcast: <span data-field="shortForecast"></span></br>
+							Wind Direction: <span data-field="windDirection"></span></br>
+							Wind Speed: <span data-field="windSpeed"></span></br>
+						</section>
+						<div class="error">
+							Error <span></span>
+						</div>
+					</div>
+				</div>
+				<div id="controls">
+					<div>
+						Latitude: <input id= "latitude" type="text" /><br />
+						Longitude: <input id="longitude" type="text" />
+					</div>
+					<input type="button" id="getWeather" value="Get weather"/>
+				</div>
+			</div>
+			<footer></footer>
+		</div>
+	</body>
+</html>

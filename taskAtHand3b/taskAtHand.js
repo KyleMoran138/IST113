@@ -1,7 +1,7 @@
 // using a function contructor form to create an object
 function taskAtHandApp(){
 	var version = "v1.0";
-	appStorage = new AppStorage("taskAtHand");
+	appStorage = new AppStorage("taskAtHandList");
 	taskList = new TaskList();
 	timeoutId = 0;
 	// creating a private function
