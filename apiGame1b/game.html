@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jep or ty</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script/game.js"></script>
+  <link rel="stylesheet" href="style/game.css" />
+</head>
+<body>
+  <header>
+
+  </header>
+  <div id="main">
+
+    <div id="navbar">
+      <div id="controls">
+        Game controls: </br></br>
+        # of players: <input type="number" id="playerNumber" value="2" min="2" max="4" /><br />
+        <div id="playerNameContainer">
+          <input type="text" class="name" value="Player 1"/>
+          <input type="text" class="name" value="Player 2"/>
+        </div>
+        <div id="categories">
+          Categories:
+          <select class="categorySelect">
+          </select>
+          <select class="categorySelect">
+          </select>
+          <select class="categorySelect">
+          </select>
+          <select class="categorySelect">
+          </select>
+        </div>
+        <input id="startGameButton" type="button" value="Start!" />
+      </div>
+      <div id="inGameView" style="display: none; height: 75%;">
+      </div>
+      <div id="templatePlayerView" class="playerView" style="display: none;">
+        <span class="playerName"></span><br />
+        Score: <span class="score"></span><br />
+        Strikes: <span class="strikes"></span><br />
+        Questions right: <span class="questionsRight"></span>
+      </div>
+    </div>
+
+    <div id="game" >
+      <h3 style="margin-top: -10px; margin-bottom: 0px;" id="userPrompt"></h3>
+      <div id="introText" style="text-align: center;">
+        Welcome to jepordy. Start the game to begin!
+      </div>
+      <div id="questionTable" style="display: none;">
+        <table style="width:100%; height: 100%">
+          <tr id="questionNames">
+            <th class="questionTitle">11</th>
+            <th class="questionTitle">12</th>
+            <th class="questionTitle">13</th>
+            <th class="questionTitle">14</th>
+          </tr>
+          <tr question="0">
+            <td category="1">200</td>
+            <td category="2">200</td>
+            <td category="3">200</td>
+            <td category="4">200</td>
+          </tr>
+          <tr question="1">
+            <td category="1">400</td>
+            <td category="2">400</td>
+            <td category="3">400</td>
+            <td category="4">400</td>
+          </tr>
+          <tr question="2">
+            <td category="1">600</td>
+            <td category="2">600</td>
+            <td category="3">600</td>
+            <td category="4">600</td>
+          </tr>
+          <tr question="3">
+            <td category="1">800</td>
+            <td category="2">800</td>
+            <td category="3">800</td>
+            <td category="4">800</td>
+          </tr>
+          <tr question="4">
+            <td category="1">1000</td>
+            <td category="2">1000</td>
+            <td ccategory="3">1000</td>
+            <td category="4">1000</td>
+          </tr>
+        </table>
+      </div>
+      <div id="questionView" style="display: none;">
+        <p class="question"><p><br />
+        Value: <span class="value"></span>
+        <input class="answer" type="text" placeholder="Answer" /><input class="submit" type="button" value="Submit" />
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+  </br>
+    <p id="status">Loading...</p>
+  </footer>
+</body>
+</html>
