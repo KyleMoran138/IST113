@@ -42,6 +42,7 @@ var Game = function(){
     $("td").on('click', function(){
       category = $(this).attr('id').substring(4);
       question = $(this).parent().attr('id').substring(4);
+      console.log(questions);
       promptQuestion(questions[category-1][question], category, question);
     });
 
