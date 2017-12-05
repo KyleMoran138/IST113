@@ -60,3 +60,8 @@ td{
   padding: 10px;
   border: black solid 1px;
 }
+
+.disabledQuestion{
+  background-color: rgb(150, 150, 150);
+  color: rgb(42, 42, 42);
+}

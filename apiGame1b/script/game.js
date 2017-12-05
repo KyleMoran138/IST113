@@ -5,7 +5,12 @@ var Game = function(){
   var questions = [];
   var gameRunning = true;
   var currentPlayerTurn = 0;
+  blockedQuestions = 0;
   getCategories();
+
+  this.getPlayers = function(){
+    return players;
+  }
 
   this.setStatus = function(status){
     setStatus(status);
@@ -13,21 +18,12 @@ var Game = function(){
 
   this.startGame = function(){
     initGameData();
-    runTurn();
-  };
-
-  function runTurn(){
     $("#userPrompt").text("It's " + players[currentPlayerTurn].name +"'s turn!");
-    $("td").on('click', function(){
-      category = $(this).attr('category');
-      question = $(this).parent().attr('question');
-      promptQuestion(questions[category-1][question], category, question);
-
-    });
-  }
+  };
 
   function initGameData(){
     players = [];
+    blockedQuestions = 0;
     questions = [];
     chosenCategories = [];
     for(i =0; i < $('.categorySelect').length; i++){
@@ -42,6 +38,12 @@ var Game = function(){
       players[i].name = $("#playerNameContainer .name:nth-child("+(i+1)+")").val();
     };
     getQuestions();
+
+    $("td").on('click', function(){
+      category = $(this).attr('id').substring(4);
+      question = $(this).parent().attr('id').substring(4);
+      promptQuestion(questions[category-1][question], category, question);
+    });
 
     $("#controls").hide();
     $("#inGameView").show();
@@ -122,20 +124,23 @@ var Game = function(){
     $("#questionTable").hide();
     $("#questionView .question").text(question.question);
     $("#questionView .value").text(question.value);
+    $("#questionView .category").text(categories[category].title);
     $("#questionView").show();
-    console.log(question.answer);
+    console.log(question.answer.replace(/(<([^>]+)>)/ig,"").toLowerCase());
     $("#questionView .submit").off('click').on('click', function(){
-      if($('#questionView .answer').val() == question.answer){
+      if($('#questionView .answer').val().replace(/(<([^>]+)>)/ig,"").toLowerCase() == question.answer.replace(/(<([^>]+)>)/ig,"").toLowerCase()){
         players[currentPlayerTurn].score += parseInt(question.value);
         players[currentPlayerTurn].questionsRight++;
-        blurOption(category, questionNumber);
       }else{
         players[currentPlayerTurn].strikes++;
+        alert("Sorry the correct answer was: " + question.answer.replace(/(<([^>]+)>)/ig,"").toLowerCase());
       }
+      blurOption(category, questionNumber);
       currentPlayerTurn++;
       if(currentPlayerTurn >= players.length){
         currentPlayerTurn = 0;
       }
+      $("#userPrompt").text("It's " + players[currentPlayerTurn].name +"'s turn!");
       $('#questionView .answer').val("");
       refreshPlayerView();
       $("#questionView").hide();
@@ -145,8 +150,33 @@ var Game = function(){
   }
 
   function blurOption(category, question){
+    $("#que_" + question).find("#cat_" + category).off('click');
+    $("#que_" + question).find("#cat_" + category).addClass('disabledQuestion');
+    blockedQuestions++;
+    if(blockedQuestions >= 20){
+      gameOver();
+    }
+  }
+
+  function gameOver(){
+
+    $("#controls").show();
+    $("#introText").show();
+
+    bestPlayer = null;
+    for(i=0; i < players.length; i++){
+      if(bestPlayer == null || bestPlayer.score < players[i].score){
+        bestPlayer = players[i];
+      }
+    }
+    $("#userPrompt").text(" ");
+    $("#introText").html("Congrats " + bestPlayer.name + "! You've won with the score: " + bestPlayer.score + "<br /> To start a new game use the controls to the left. ");
+    $("td").removeClass('disabledQuestion');
+    $("#inGameView").hide();
+    $("#questionTable").hide();
 
   }
+
 }
 
 var Player = function(){
@@ -169,17 +199,37 @@ var updatePlayerNumber = function(){
   }
 }
 
+
+
 $(document).ready(function(){
   var G = new Game();
   var playerNameFields = 1;
 
   G.setStatus("Ready!");
 
+  var putOnVisor = function(){
+    var ans = prompt("What do you see next?");
+    if(ans.replace(/(<([^>]+)>)/ig,"").toLowerCase() == "ready player one"){
+      godPlayer = prompt("What's your players name?");
+      for(i=0; i < G.getPlayers().length; i++){
+        if(G.getPlayers()[i].name == godPlayer){
+          G.getPlayers()[i].score = 9001;
+        }
+      }
+    }
+  }
+
   $("#startGameButton").on("click", G.startGame);
 
   $("#playerNumber").on("click", updatePlayerNumber);
 
   $("#playerNumber").on("change", updatePlayerNumber);
+
+  $("#randomizeCategories").on('click', function(){
+    $('.categorySelect').each(function(index, element){
+      $(element).val(Math.floor((Math.random() * 99) + 1));
+    })
+  })
 
 
 });
